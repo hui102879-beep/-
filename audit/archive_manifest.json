@@ -1,0 +1,9 @@
+{
+  "file": "second_cpu_package_for_ci.zip",
+  "sha256": "0ff26aa0363b32129b4079406145632126bae29886da65563159ad52f782b894",
+  "bytes": 15608465,
+  "methods": 12,
+  "inputs": 53,
+  "remote_executed": false,
+  "static_checks_only": true
+}

@@ -1,0 +1,20 @@
+{
+  "local_ready": true,
+  "remote_executed": false,
+  "repository": "C:\\Users\\\u4ed6\u548c\u5979\\Documents\\Codex\\2026-10-28\\siunners-chatgpt-conversation-6ae1ca69-7610-83e8\\outputs\\remote_cpu_execution\\repository",
+  "archive_sha256": "0ff26aa0363b32129b4079406145632126bae29886da65563159ad52f782b894",
+  "dll_methods": 12,
+  "input_representations": 53,
+  "source_contents": 18,
+  "repeats": 9,
+  "sessions": 3,
+  "expected_records_per_benchmark_session": 5724,
+  "remote_python": "3.12.10",
+  "reference_python": "3.12.14",
+  "environment_difference_documented": true,
+  "fixed_windows_wheels_available_by_HEAD": true,
+  "actions_definitions_available": true,
+  "powershell_parser_passed": true,
+  "yaml_validation": "manual structure review only; actual Actions validation occurs on remote dispatch",
+  "all_payload_hashes_and_zip_crc_passed": true
+}

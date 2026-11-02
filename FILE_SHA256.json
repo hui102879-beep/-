@@ -1,0 +1,19 @@
+{
+  ".gitignore": "d34862d04a00b5e74e8b8ea61c3ec24eec3c38fa406f045d0cf93a4cc93d834f",
+  "ENVIRONMENT_CHANGE.md": "ae51555e43a66caa4f69cacc859b228e9a24456c0acfd25d68a7f9da1bdf716c",
+  "README.md": "7f624bf4852dd1b7996ef7b7a4da16d830cd1d45d709f169a78af7dceae10f5c",
+  "artifacts/second_cpu_package.zip": "0ff26aa0363b32129b4079406145632126bae29886da65563159ad52f782b894",
+  "audit/archive_manifest.json": "579c566de43a96ae5cc02385560f5bcc111729f85b12102d15d4182ef3dbb6b3",
+  "audit/audit.json": "23f46bed7861eef26b67113e028334a4f735bb305cbeccd4db67a55c4f637e36",
+  "audit/checkout.yml": "d59219cb79590abdb877deaa14e3b65a00c05318bf5a6f3b989b9162b5d08c35",
+  "audit/local_validation.json": "ea43cacec8ae48862924faecdca81879f4f9285879b529f60a46f5bf956a3244",
+  "audit/numpy.json": "3d5ab646290a0954f48ca6139bccb402377e54165b064b567d50c1106ce5678f",
+  "audit/Pillow.json": "5182199d7ea7bc53cf195aed977f24405f13becd6902f6efbddd3f18336e0b57",
+  "audit/python-versions-manifest.json": "fed4236f97902ffec4ba84618ad69dda292055eb0480d9441df2ae7ea8915509",
+  "audit/setup-python.yml": "0829b3f54d769f8b25cefd4d856c735bc8e097d6597835b838ebb4da497c838d",
+  "audit/upload-artifact.yml": "c5979822866a72362e609844b6ebe77d4b7e759af68cc1c2c425dcf51481fab4",
+  "audit/windows_environment.json": "659daa0f5fd64014df6a0a5d797fcbc22dc29696cdc8330998bf26bb7050cb6f",
+  ".github/scripts/requirements-ci.txt": "ea8a6d3fbe3b691d36b44be42fcbbc3fba0409a29acc267c144c09b16236192f",
+  ".github/scripts/run_remote_cpu.ps1": "832ed15914e03c7e7a26cbf9704ddc8ea4e82ec4be5487c4fb41bc0ee5bf5470",
+  ".github/workflows/windows-remote-cpu.yml": "97a2f7d39cd38880602d669f1fa1ff6eefb0b44823c455a2de3fedbead5f5865"
+}

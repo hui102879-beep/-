@@ -1,0 +1,92 @@
+{
+  "utc": "2026-11-01T12:20:35.308082+00:00",
+  "sources": {
+    "numpy": {
+      "metadata": {
+        "url": "https://pypi.org/pypi/numpy/2.5.4/json",
+        "status": 200,
+        "bytes": 63184,
+        "sha256": "3d5ab646290a0954f48ca6139bccb402377e54165b064b567d50c1106ce5678f",
+        "file": "numpy.json"
+      },
+      "selected_wheel": {
+        "filename": "numpy-2.5.4-cp312-cp312-win_amd64.whl",
+        "url": "https://files.pythonhosted.org/packages/12/33/fefe62073dc8acfd0f2b9ed7c003af2f50aa61555e113e6db02b8f79f145/numpy-2.5.4-cp312-cp312-win_amd64.whl",
+        "size": 12573091,
+        "digests": {
+          "blake2b_256": "1233fefe62073dc8acfd0f2b9ed7c003af2f50aa61555e113e6db02b8f79f145",
+          "md5": "dfa4ac5b8099be07fac06817b74c19c5",
+          "sha256": "a7b1b6353e36a7e50de2973a38d705c88ee93adcf120673cee7f45a4a3fa223a"
+        },
+        "requires_python": ">=3.12",
+        "upload_time_iso_8601": "2026-10-10T20:03:04.349010Z"
+      },
+      "head": {
+        "status": 200,
+        "content_length": "12573091"
+      }
+    },
+    "Pillow": {
+      "metadata": {
+        "url": "https://pypi.org/pypi/Pillow/12.3.0/json",
+        "status": 200,
+        "bytes": 509639,
+        "sha256": "5182199d7ea7bc53cf195aed977f24405f13becd6902f6efbddd3f18336e0b57",
+        "file": "Pillow.json"
+      },
+      "selected_wheel": {
+        "filename": "pillow-12.3.0-cp312-cp312-win_amd64.whl",
+        "url": "https://files.pythonhosted.org/packages/45/89/da2f7971a317f83d807fdd4065c0af40208e59e692cc43d315a71a0e96d1/pillow-12.3.0-cp312-cp312-win_amd64.whl",
+        "size": 7227137,
+        "digests": {
+          "blake2b_256": "4589da2f7971a317f83d807fdd4065c0af40208e59e692cc43d315a71a0e96d1",
+          "md5": "ca45ffc3e54192266c378089a0be08d2",
+          "sha256": "a2b55dd6b2a4c4b7d87ffa56bdb33fdc5fdb9a462173861a7bc097f17d91cb09"
+        },
+        "requires_python": ">=3.10",
+        "upload_time_iso_8601": "2026-07-01T11:54:22.025716Z"
+      },
+      "head": {
+        "status": 200,
+        "content_length": "7227137"
+      }
+    },
+    "checkout": {
+      "commit": "3d3c42e5aac5ba805825da76410c181273ba90b1",
+      "definition": {
+        "url": "https://raw.githubusercontent.com/actions/checkout/3d3c42e5aac5ba805825da76410c181273ba90b1/action.yml",
+        "status": 200,
+        "bytes": 5144,
+        "sha256": "d59219cb79590abdb877deaa14e3b65a00c05318bf5a6f3b989b9162b5d08c35",
+        "file": "checkout.yml"
+      }
+    },
+    "setup-python": {
+      "commit": "6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+      "definition": {
+        "url": "https://raw.githubusercontent.com/actions/setup-python/6d4fd22b20465ccc0f7354476588e8df7c9ca0e0/action.yml",
+        "status": 200,
+        "bytes": 3141,
+        "sha256": "0829b3f54d769f8b25cefd4d856c735bc8e097d6597835b838ebb4da497c838d",
+        "file": "setup-python.yml"
+      }
+    },
+    "upload-artifact": {
+      "commit": "cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+      "definition": {
+        "url": "https://raw.githubusercontent.com/actions/upload-artifact/cf430e030ddbb5b0abf93d22962f4752f3646cd9/action.yml",
+        "status": 200,
+        "bytes": 3603,
+        "sha256": "c5979822866a72362e609844b6ebe77d4b7e759af68cc1c2c425dcf51481fab4",
+        "file": "upload-artifact.yml"
+      }
+    }
+  },
+  "available": false,
+  "errors": [
+    {
+      "item": "python",
+      "error": "AssertionError([])"
+    }
+  ]
+}

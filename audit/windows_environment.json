@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-01T12:23:10.968490+00:00",
+  "reference_python": "3.12.14",
+  "remote_python": "3.12.10",
+  "reason": "Official3.12.14 is source-only and actions/python-versions lacks Windows x64;3.12.10 has an official Windows x64 build. This is an explicit environment comparison, not a silent substitution.",
+  "source_manifest_url": "https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json",
+  "artifact": {
+    "filename": "python-3.12.10-win32-x64.zip",
+    "arch": "x64",
+    "platform": "win32",
+    "download_url": "https://github.com/actions/python-versions/releases/download/3.12.10-14343898437/python-3.12.10-win32-x64.zip"
+  },
+  "release_url": "https://github.com/actions/python-versions/releases/tag/3.12.10-14343898437",
+  "head": {
+    "status": 200,
+    "final_host": "release-assets.githubusercontent.com",
+    "content_length": "26672655"
+  },
+  "remote_run_completed": false,
+  "fixed_archive_sha256": "0ff26aa0363b32129b4079406145632126bae29886da65563159ad52f782b894"
+}

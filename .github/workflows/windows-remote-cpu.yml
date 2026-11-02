@@ -1,0 +1,100 @@
+# Upload-ready frozen protocol. Remote execution status belongs to actual run logs.
+# Python patch-version difference is explicit in ENVIRONMENT_CHANGE.md.
+name: Frozen DNA codec remote Windows CPU replication
+
+on:
+  workflow_dispatch:
+    inputs:
+      archive_path:
+        description: Repository-relative path to the frozen second_cpu_package ZIP
+        type: string
+        required: true
+        default: artifacts/second_cpu_package.zip
+      archive_sha256:
+        description: SHA256 of that ZIP, computed before dispatch
+        type: string
+        required: true
+        default: '0ff26aa0363b32129b4079406145632126bae29886da65563159ad52f782b894'
+      mode:
+        description: Correctness first; benchmark keeps all 12 methods, 53 inputs, 9 repetitions
+        type: choice
+        options: [correctness, benchmark]
+        default: correctness
+        required: true
+      runner_label:
+        description: OS image label; this does NOT select or guarantee a CPU model
+        type: choice
+        options: [windows-2022, windows-2025]
+        default: windows-2022
+        required: true
+      sessions:
+        description: Preselect session count; fresh VMs do NOT guarantee different physical hosts
+        type: choice
+        options: ['3', '1']
+        default: '3'
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: frozen-remote-cpu-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  replicate:
+    name: Remote VM session ${{ matrix.session }}
+    runs-on: ${{ inputs.runner_label }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        session: ${{ fromJSON(inputs.sessions == '3' && '[1,2,3]' || '[1]') }}
+    env:
+      PYTHONUTF8: '1'
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PACKAGE_PATH: ${{ inputs.archive_path }}
+      PACKAGE_SHA256: ${{ inputs.archive_sha256 }}
+      MEASUREMENT_MODE: ${{ inputs.mode }}
+      SESSION_ID: ${{ matrix.session }}
+      REQUESTED_RUNNER: ${{ inputs.runner_label }}
+      REMOTE_PYTHON_VERSION: '3.12.10'
+      REFERENCE_PYTHON_VERSION: '3.12.14'
+    steps:
+      - name: Check out the dispatched source revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1, verified 2026-11-01
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Install the documented external Windows Python version
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12.10'
+          architecture: x64
+          check-latest: false
+      - name: Install fixed measurement dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --only-binary=:all: --no-deps -r .github/scripts/requirements-ci.txt
+          if ($LASTEXITCODE -ne 0) { throw 'Pinned dependencies unavailable; do not substitute latest versions.' }
+      - name: Verify package and run the frozen protocol
+        shell: pwsh
+        run: |
+          & ./.github/scripts/run_remote_cpu.ps1 `
+            -ArchivePath $env:PACKAGE_PATH `
+            -ExpectedSha256 $env:PACKAGE_SHA256 `
+            -Mode $env:MEASUREMENT_MODE `
+            -Session ([int]$env:SESSION_ID) `
+            -EvidenceDirectory (Join-Path $env:GITHUB_WORKSPACE "remote-cpu-results/session-$env:SESSION_ID")
+      - name: Preserve evidence, including failed and negative sessions
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: remote-cpu-${{ github.run_id }}-${{ github.run_attempt }}-session-${{ matrix.session }}
+          path: remote-cpu-results/
+          if-no-files-found: warn
+          retention-days: 30
+          overwrite: false
